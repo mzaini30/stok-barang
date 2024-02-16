@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base /assets/ && node ./script/afterBuild.mjs && node ./script/convertToAndroidApp.mjs",
+    "build": "vite build",
+    "build:android": "vite build --base /assets/ && node ./script/afterBuild.mjs && node ./script/convertToAndroidApp.mjs",
     "preview": "vite preview"
   },
   "devDependencies": {

@@ -3,23 +3,17 @@
   import Gerbang from "./kunci/src/Gerbang.svelte";
   import data from "../android.json";
   import alasql from "alasql";
+  import Beranda from "./Beranda.svelte";
 
   alasql(/* sql */ `
   create localStorage database if not exists data;
   attach localStorage database data;
-  
-CREATE TABLE if not exists data.barang
-(
-  id         text     NOT NULL,
-  nama       TEXT    NULL    ,
-  harga_beli DECIMAL NULL    ,
-  harga_jual DECIMAL NULL    ,
-  banyak     INT     NULL    ,
-  PRIMARY KEY (id)
-);
+  create table if not exists data.barang (id text, nama text, harga_beli number, harga_jual number, banyak number);
   `);
 
-  const routes = {};
+  const routes = {
+    "/": Beranda,
+  };
 </script>
 
 <Gerbang namaAplikasi={data.title}>
